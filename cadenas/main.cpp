@@ -8,6 +8,15 @@ void cambio(char *a,char *b){
     *b=c;
 }
 
+int cantR(char *e){
+    if(*e=='\0')
+        return 0;
+    else
+        return 1+cantR(++e);
+    }
+
+
+
 int cantidad(char *a){
     int tam=0;
     while(*a++ !='\0'){
@@ -27,12 +36,12 @@ int inverI(char *a){
     }
 }
 
+//cambiar el return porque void no ertorna nada
 void inverR(char *e,int i=0){
     int t=cantidad(e)-1;
     char*fin=e+t-i;
     if(e<fin){
         cambio(e,fin);
-        cout<<e<<endl;
         return inverR(++e,++i);
     }
 }
@@ -50,11 +59,23 @@ bool palindromo(char *a){
     return true;
 }
 
+bool palindromoR(char *e,int i=0){
+    int t=cantidad(e)-1;
+    char*fin=e+t-i;
+    if(*e==*fin)
+
+
+
+    }
+
+
+
+
 
 
 int main()
 {   char e[]="abcde";
-   int t =cantidad(e);
+   int t =cantR(e);
    inverR(e);
    //cout<<palindromo(e)<<endl;
    cout<<e<<endl;
