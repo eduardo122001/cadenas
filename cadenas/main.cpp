@@ -62,10 +62,15 @@ bool palindromo(char *a){
 bool palindromoR(char *e,int i=0){
     int t=cantidad(e)-1;
     char*fin=e+t-i;
-    if(*e==*fin)
+    if(e<fin){
+        if(*e==*fin)
+            return palindromoR(++e,++i);
 
-
-
+        else
+            return false;
+    }
+    else
+        return true;
     }
 
 
@@ -74,10 +79,10 @@ bool palindromoR(char *e,int i=0){
 
 
 int main()
-{   char e[]="abcde";
+{   char e[]="abcvcba";
    int t =cantR(e);
    inverR(e);
    //cout<<palindromo(e)<<endl;
-   cout<<e<<endl;
+   cout<<palindromoR(e)<<endl;
     return 0;
 }
